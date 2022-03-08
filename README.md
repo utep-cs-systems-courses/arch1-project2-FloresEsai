@@ -23,3 +23,5 @@ Your project will be graded on the following items:
 * Source code for your toy (only .c, .s and .h files).
 * A README containing a description of your toy, how to compile it, how to run it, and how to use it.
 * A Makefile with appropriate rules to build and clean your toy.
+
+ToDo: Make sounds, change LEDs, use four buttons
