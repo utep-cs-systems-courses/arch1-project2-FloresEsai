@@ -1,0 +1,33 @@
+#include <msp430.h>
+#include "libTimer.h"
+
+void configureClocks(){
+  WDTCTL  = WDTPW + WDTHOLD; //DISABLE WATCHDOG TIMER
+  BCSCTL1 = CALBC1_16MHZ;    // SET DCO TO 16 MHZ
+  DCOCTL  = CALDCO_16MHZ;
+
+  BCSCTL2 &= ~(SELS);        // SMCLK SOURCE = DCO
+  BCSCTL2 |= DIVS_3;         // SMCLK = DCO / 8
+}
+
+// ENABLE WATCHDOG TIMER PERIODIC INTERRUPT
+// PERIOD = SMCLOCK/32K
+
+void enableWDTInterrupts(){
+  WDTCTL = WDTPW |           // PASSWD REQ'D OTHERWISE DEVICE RESETS
+    WDTTMSEL |               // WATCHDOG INTERVAL MODE
+    WDTCNTCL |               // CLEAR WATCHDOG COUNT
+    1;                       // DIVIDE SMCLK BY 8192
+  IE1 |= WDTIE;              // ENABLE WATCHDOG INTERVAL TIMER INTERRUPT
+}
+
+void timerAUpmode(){
+  TA0CCR0 = 0;
+  TA0CCR1 = 0;
+  TA0CCTL1 = OUTMOD_3;       // TOGGLE PL.6 WHEN TIMER=COUNT1
+
+  // TIMER A CONTROL
+  // TIMER CLOCK SOURCE 2: SYSTEM CLOCK (SMCLK)
+  // MODE CONTROL 1: CONTINUOUSLY 0...CCR0
+  TACTL = TASSEL_2 + MC_1;
+}

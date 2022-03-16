@@ -1,8 +1,8 @@
 #include <msp430.h>
 #include "libTimer.h"
 
-#define LED_RED BIT0               // P1.0
-#define LED_GREEN BIT6             // P1.6
+#define LED_RED BIT6               // P1.6
+#define LED_GREEN BIT0             // P1.0
 #define LEDS (BIT0 | BIT6)
 
 #define SW1 BIT3		/* switch1 is p1.3 */
@@ -13,7 +13,7 @@ void main(void)
   configureClocks();
 
   P1DIR |= LEDS;
-  P1OUT &= ~LEDS;		/* leds initially off */
+  // P1OUT &= ~LEDS;		/* leds initially off */
   
   P1REN |= SWITCHES;		/* enables resistors for switches */
   P1IE |= SWITCHES;		/* enable interrupts from switches */

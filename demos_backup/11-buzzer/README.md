@@ -3,7 +3,7 @@ This program just makes a buzz at 1kHz.
 
 ## Suggested activity
 
-* Modify that a differnt tone is played when the button is pressed.
+* Modify that a differnt tone is played when the button is pressed. Done~
 
 * Add a state machine the plays a sequence of different tones as time progresses (use wd timer).
 

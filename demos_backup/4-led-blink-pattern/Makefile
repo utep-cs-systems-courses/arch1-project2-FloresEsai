@@ -1,5 +1,5 @@
 # makfile configuration
-COMMON_OBJECTS  = main_mod_2.o 
+COMMON_OBJECTS  = main.o 
 CPU             = msp430g2553
 CFLAGS          = -mmcu=${CPU} -I../h
 LDFLAGS		= -L/opt/ti/msp430_gcc/include 

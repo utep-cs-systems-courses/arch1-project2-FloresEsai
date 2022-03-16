@@ -18,5 +18,6 @@ changes a state variable that modifies the blink sequence.
 
 ## Some Advice
 When creating your own variants to the demo programs,
-it's probably a good idea to keep a copy of the original program (or really understand how _git checkout_ works).  
+it's probably a good idea to keep a copy of the original program (or really
+understand how _git checkout_ works). Done~  
 
