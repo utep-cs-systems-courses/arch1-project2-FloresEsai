@@ -30,3 +30,29 @@ void green_on(int on){
   else
     P1OUT &= ~LED_GREEN;
 }
+
+// turns on both LEDs when input is 1, otherwise off
+void leds_on(int on){
+  if (on){
+    P1OUT |= LEDS;
+  }
+  else
+    P1OUT &= ~LEDS;
+}
+
+// swaps the current states of the LEDs, default state where they are both off
+void led_swap(int on){
+  switch(on){
+  case 0:
+    red_on(1);
+    green_on(0);
+    break;
+  case 1:
+    red_on(0);
+    green_on(1);
+    break;
+  default:
+    leds_on(0);
+    break;
+  }
+}
