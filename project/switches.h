@@ -14,16 +14,7 @@ void switch_interrput_handler();
 
 /* -------------------------------  */
 
-/* variables to hold the current state of switch */
-extern int sw1_status;
-extern int sw2_status;
-extern int sw3_status;
-extern int sw4_status;
+extern int sw1, sw2, sw3, sw4;
 
-extern int sw1_pressed;
-extern int sw2_pressed;
-extern int sw3_pressed;
-extern int sw4_pressed;
-
-/* --------------------------------------------- */
+/* -------------------------------- */
 #endif

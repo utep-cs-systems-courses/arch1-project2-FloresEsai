@@ -1,7 +1,7 @@
-COMMON_OBJECTS = main.o buzzer.o switches.o led.o
-CPU    = msp430g2553
-CFLAGS = -mmcu=${CPU} -I../h
-LDFLAGS= -L/opt/ti/msp430_gcc/include
+COMMON_OBJECTS = main.o
+CPU            = msp430g2553
+CFLAGS         = -mmcu=${CPU} -I../h
+LDFLAGS        = -L/opt/ti/msp430_gcc/include
 
 CC = msp430-elf-gcc #C Compiler
 AS = msp430-elf-as  #Assembly
@@ -20,9 +20,6 @@ clean:
 main.o: buzzer.h led.h stateMachines.h switches.h
 
 buzzer.o: buzzer.h
-
 led.o: led.c led.h
-
 switches.o: led.h switches.h
-
 stateMachines.o: buzzer.h notes.h led.h stateMachines.h switches.h
