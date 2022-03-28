@@ -10,7 +10,7 @@ void buzzer_init()
 
     According to table 21 from data sheet:
 
-      P2SEL2.6, P2SEL2.7, anmd P2SEL.7 must be zero
+      P2SEL2.6, P2SEL2.7, and P2SEL.7 must be zero
 
       P2SEL.6 must be 1
 
