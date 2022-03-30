@@ -1,5 +1,7 @@
 #include "libTimer.h"
 #include "buzzer.h"
+#include "led.h"
+#include "switches.h"
 #include <msp430.h>
 
 static int counterForSWTheme = 0; //Counter to keep track of the notes in the Star Wars Theme song

@@ -1,6 +1,8 @@
 #include <msp430.h>
 #include "led.h"
 #include "switches.h"
+#include "buzzer.h"
+#include "libTimer.h"
 
 void led_init(){
   P1DIR |= LEDS; //bits attached to leds are output
