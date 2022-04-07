@@ -20,8 +20,8 @@ load: toy.elf
 clean:
 	rm -f *.c~ *.h~ *.o *.elf
 
-buzzer.c: buzzer.h libTimer.h led.h switches.h
-interrupts.c: led.h libTimer.h switches.h buzzer.h
-led.c: led.h switches.h libTimer.h buzzer.h
-project2Main: libTimer.h buzzer.h led.h switches.h 
-switches.c: switches.h led.h buzzer.h libTimer.h
+buzzer.c: buzzer.h
+interrupts.c: led.h switches.h buzzer.h
+led.c: led.h
+project2Main.c: buzzer.h led.h switches.h 
+switches.c: switches.h

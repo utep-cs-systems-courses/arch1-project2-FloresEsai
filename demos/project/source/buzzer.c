@@ -4,6 +4,9 @@
 #include "switches.h"
 #include <msp430.h>
 
+static unsigned int songLength = 2500;
+static signed int rateOfChange = 250;
+
 static int counterForSWTheme = 0; //Counter to keep track of the notes in the Star Wars Theme song
 
 void buzzer_init(){
@@ -21,10 +24,27 @@ void buzzer_init(){
   P2DIR = BIT6; //enable output to speaker (P2.6)
 }
 
+void buzzer_play_sound(){
+  songLength = (songLength + rateOfChange);
+  if(rateOfChange > 0){
+    if(songLength > 90000){
+      rateOfChange = -rateOfChange;
+      songLength = songLength + (rateOfChange << 1);
+    }
+  }
+  if(rateOfChange < 0){
+    if(songLength < 90000){
+      rateOfChange = -rateOfChange;
+      songLength = songLength + (rateOfChange << 1);
+    }
+  }
+}
+
 void siren_buzzer(){
   for (int pitch = 30; pitch < 2000; pitch++){
     buzzer_set_period(pitch);
-    delay(5);
+    // put delay here
+    __delay_cycles(250000);
   }
 }
 

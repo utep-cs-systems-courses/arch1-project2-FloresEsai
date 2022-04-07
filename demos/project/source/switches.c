@@ -46,9 +46,13 @@ void switch_interrupt_handler(){
     switch_state_down = 1;
   }
   else if(!(p2val & SW3)){
-    //Play the Star Wars theme song
-    tempo = 120;
-    starWarsTheme();
+    int curr_note = 1000;
+    int n = 50000;
+    if (curr_note < n){
+      buzzer_set_period(curr_note);
+      curr_note++;
+    }else
+      curr_note = 0;
     switch_state_down = 1;
   }
   else if(!(p2val & SW4)){
